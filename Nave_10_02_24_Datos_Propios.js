@@ -1,11 +1,12 @@
 const { OpenAIClient,AzureKeyCredential } = require("@azure/openai");
+require('dotenv').config(); 
 
-const endpoint = "https://lanave-assistant-ia-service.openai.azure.com/";
-const azureApiKey = "f93d8e26153543d18b2e1124ade3d01d";
-const searchEndpoint = "https://lanaveassistantsearch.search.windows.net";
-const searchKey = "gCXGhPxaufktNMDObsMReXknUhZTu5mpDQP1VZnDdvAzSeBOR61v";
-const searchIndex = "lanave-assistant-index-dev"
-const deploymentId = "gpt-4"
+const endpoint = process.env.AZUREOPENAI_ENDPOINT
+const azureApiKey = process.env.AZUREOPENAI_KEY
+const searchEndpoint = process.env.SEARCH_ENDPOINT
+const searchKey = process.env.SEARCH_KEY
+const searchIndex = process.env.SEARCH_INDEX_NAME
+const deploymentId = process.env.DEPLOYMENT_NAME
 
 async function main(){
     const client = new OpenAIClient(endpoint, new AzureKeyCredential(azureApiKey));
