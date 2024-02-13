@@ -19,7 +19,7 @@ client = AzureOpenAI(
 question= 'que es la universidad de la habana?'
 print(f"User: {question}")
 completion = client.chat.completions.create(model= deployment_name, messages= [
-    {nave
+    {
         "role": "user","content": question
         }
         ], extra_body={
